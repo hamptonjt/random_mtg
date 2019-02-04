@@ -1,0 +1,19 @@
+{
+  "name": "random_mtg",
+  "version": "1.0.0",
+  "description": "Call MTG API to pull random card",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "random",
+    "card",
+    "MTG"
+  ],
+  "author": "Jerry Hampton",
+  "license": "ISC",
+  "dependencies": {
+    "mtgsdk": "^0.4.2"
+  }
+}
