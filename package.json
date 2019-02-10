@@ -1,7 +1,7 @@
 {
   "name": "random_mtg",
   "version": "1.0.0",
-  "description": "Call MTG API to pull random card",
+  "description": "Call Scryfall API to pull random card",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,6 +14,7 @@
   "author": "Jerry Hampton",
   "license": "ISC",
   "dependencies": {
-    "mtgsdk": "^0.4.2"
+    "request": "^2.88.0",
+    "twitter": "^1.7.1"
   }
 }
