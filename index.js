@@ -11,7 +11,7 @@ module.exports = function (context, cb) {
   request({method: 'GET', url: randomUrl, json: true}, function (e, response, body) {
     if (e) {
       console.error(e)
-      cb(error)
+      cb(e)
     }
     let card = body
     // console.log(card.name, '-', card.set_name)
