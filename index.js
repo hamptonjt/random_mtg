@@ -13,13 +13,10 @@ module.exports = function (context, cb) {
       console.error(e)
       cb(e)
     }
-    let card = body
-    // console.log(card.name, '-', card.set_name)
-    // console.log('Release Date:', card.released_at)
-    // console.log(card.image_uris.normal)
 
+    let card = body
     let client = new Twitter(context.secrets)
-    let tweet = card.name + ' - ' + card.set_name + '\nRelease Date: ' + card.released_at
+    let tweet = card.name + '\nSet:' + card.set_name + '\nRarity: ' + card.rarity + '\nRelease Date: ' + card.released_at
     request.get({url: card.image_uris.normal, encoding: null}, function (err, response, body) {
       if (!err && response.statusCode === 200) {
         client.post('media/upload', {media: body}, function (error, media, response) {
