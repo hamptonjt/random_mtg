@@ -16,13 +16,13 @@ module.exports = function (context, cb) {
 
     let card = body
     let client = new Twitter(context.secrets)
-    let tweet = card.name + '\nSet:' + card.set_name + '\nRarity: ' + card.rarity + '\nRelease Date: ' + card.released_at
-    request.get({url: card.image_uris.normal, encoding: null}, function (err, response, body) {
-      if (!err && response.statusCode === 200) {
-        client.post('media/upload', {media: body}, function (error, media, response) {
-          if (error) {
-            console.error('Error from media/upload: ' + error)
-            cb(error)
+    let tweet = card.name + '\nSet: ' + card.set_name + '\nRarity: ' + card.rarity + '\nRelease Date: ' + card.released_at
+    request.get({url: card.image_uris.normal, encoding: null}, function (err, res, bdy) {
+      if (!err && res.statusCode === 200) {
+        client.post('media/upload', {media: bdy}, function (error1, media, resp) {
+          if (error1) {
+            console.error('Error from media/upload: ' + error1)
+            cb(error1)
           }
 
           console.log('Image uploaded to Twitter')
@@ -32,8 +32,8 @@ module.exports = function (context, cb) {
             media_ids: media.media_id_string
           }
 
-          client.post('statuses/update', status, function (error, tweet, response) {
-            if (!error) {
+          client.post('statuses/update', status, function (error2, twt, rsp) {
+            if (!error2) {
               console.log('Tweeted OK!')
             }
           })
